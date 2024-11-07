@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Centering Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        
+        fieldset {
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        label, input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone">
+    </fieldset>
+</body>
+</html>

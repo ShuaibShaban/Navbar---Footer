@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: cursive;
+    box-sizing: border-box;
+  }
+
+
+  .navigation {
+    background-color: #68da1cab;
+    padding: 15px;
+  }
+  .navigation > ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+  .navigation li, a {
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .navigation li, a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  .menu-toggle {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .navigation ul {
+      flex-direction: column;
+      gap: 20px;
+      background-color: #68da1cab;
+    }
+  }
+
+  .main-footer {
+    display: flex;
+    background-color: #68da1cab;
+    justify-content: space-around;
+    padding: 20px 0;
+    color: white;
+    cursor: pointer;
+  }
+  .main-footer div h5 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+  .main-footer div p {
+    margin-bottom: 8px;
+  }
+
+
+  .social-icons {
+    background-color: #68da1cab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .social-icons .child-icons {
+    display: flex;
+    gap: 20px;
+    color: white;
+    font-size: 1.5em;
+  }
+
+  .social-icons .child-icons i {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .social-icons .child-icons i:hover {
+    color: #ffd700; 
+    transform: scale(1.2); 
+  }

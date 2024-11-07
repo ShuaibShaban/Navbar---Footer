@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table Basics</title>
+
+    <!-- Internal CSS -->
+
+     
+    <style> 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>HTML Table Example</h2>
+
+<table>
+    <!-- Table Header -->
+    <thead>
+        <tr>
+            <th>Element</th>
+            <th>Description</th>
+            <th>Content</th>
+            <th>More</th>
+        </tr>
+    </thead>
+
+    <!-- Table Body -->
+    <tbody>
+        <tr>
+            <td rowspan="2">&lt;table&gt;</td>
+            <td>Defines the start of the table.</td>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa</td>
+        </tr>
+        <tr>
+            <td>&lt;tr&gt;</td>
+            <td>Defines a row in the table.</td>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa</td>
+        </tr>
+        <tr>
+            <td>&lt;th&gt;</td>
+            <td>Defines a header cell in the table.</td>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa</td>
+        </tr>
+        <tr>
+            <td>&lt;td&gt;</td>
+            <td>Defines a standard data cell in the table.</td>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa</td>
+        </tr>
+        <tr>
+            <td>&lt;thead&gt;</td>
+            <td>Groups the header content in a table.</td>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa</td>
+        </tr>
+        <tr>
+            <td>&lt;tbody&gt;</td>
+            <td>Groups the body content (data rows) in a table.</td>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa</td>
+        </tr>
+    </tbody>
+
+    <!-- Table Footer -->
+    <tfoot>
+        <tr>
+            <td colspan="4">This is the footer of the table (optional).</td>
+        </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Young+Serif&display=swap');
+
+* {
+    color: white;
+    font-family: cursive;
+}
+
+body{
+    background-image: url(/assets/pierre-bamin-PKIQBsZSsZE-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Young Serif", serif;
+}
+
+p {
+    font-family: "Outfit", sans-serif;
+}
+
+.field-set {
+    width: 50%;
+}
+
+input {
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input, label {
+    margin-top: 30px;
+}
+
+.submit-btn {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ff6347;
+    color: white;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+h1, h3 {
+    color: white;
+}
+
+.fa-solidfa-user{
+    
+}

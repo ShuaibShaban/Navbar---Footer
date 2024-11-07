@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Basics</title>
+    <link rel="stylesheet" href="/styles.css">
+    
+    <style>
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        label, input, select, textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input, select, textarea {
+            padding: 8px;
+            width: 100%;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h2>HTML Form Example</h2>
+
+<form action="/submit" method="post">
+    <!-- Text Input -->
+    <label for="name">Name (Text Input):</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <!-- Password Input -->
+    <label for="password">Password (Password Input):</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+    <!-- Radio Buttons -->
+    <p>Gender (Radio Buttons):</p>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+
+    <!-- Checkboxes -->
+    <p>Hobbies (Checkboxes):</p>
+    <input type="checkbox" id="reading" name="hobby" value="reading">
+    <label for="reading">Reading</label>
+    <input type="checkbox" id="sports" name="hobby" value="sports">
+    <label for="sports">Sports</label>
+
+    <!-- Dropdown (Select) -->
+    <label for="country">Country (Dropdown):</label>
+    <select id="country" name="country">
+        <option value="usa">USA</option>
+        <option value="uk">UK</option>
+        <option value="canada">Canada</option>
+    </select>
+
+    <!-- Textarea -->
+    <label for="bio">Bio (Textarea):</label>
+    <textarea id="bio" name="bio" placeholder="Tell us about yourself" rows="4"></textarea>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Submit Form">
+</form>
+
+</body>
+</html>

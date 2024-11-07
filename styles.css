@@ -1,0 +1,52 @@
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#intro-css {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+/* Cascading style sheets  CSS*/
+
+/* body{
+background-image: url(/assets/sajad-nori-_ff66rtB8j4-unsplash.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;
+background-size: cover;
+} */
+
+body {
+    background-image: url(/assets/sajad-nori-_ff66rtB8j4-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    font-family: monospace;
+}
+
+.btn-props{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.orng-btn {
+    background-color: orangered;
+    color: white;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: large;
+}

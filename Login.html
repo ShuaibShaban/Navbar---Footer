@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/Login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="login-form">
+      <fieldset class="field-set">
+        <legend>HTML 5 Login Form</legend>
+        <form action="post">
+          <label for="fname">FirstName: </label>
+          <input type="text" placeholder="Enter Your first name" /><br />
+          <label for="lname" style="margin: 2px">LastName: </label>
+          <input type="text" placeholder="Enter Your Last name" /><br />
+        </form>
+        <div class="submit-button">
+          <button class="submit-btn" onclick="formSubmitted()">Submit  <i class="fa-solid fa-user"></i></button>
+        </div>
+      </fieldset>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
