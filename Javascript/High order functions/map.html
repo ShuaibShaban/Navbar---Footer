@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 50px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+        }
+        .user-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #e3e3e3;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub User Finder</h1>
+        <input type="text" id="username" placeholder="Enter GitHub username">
+        <button id="fetchUser">Fetch User</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function userFetcher() {
+            let cache = {};
+            return function(username) {
+                if (cache[username]) {
+                    return Promise.resolve(cache[username]);
+                }
+                return fetch(`https://api.github.com/users/${username}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("User not found");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        cache[username] = data;
+                        return data;
+                    });
+            };
+        }
+
+        const fetchGitHubUser = userFetcher();
+        document.getElementById("fetchUser").addEventListener("click", function() {
+            const username = document.getElementById("username").value.trim();
+            const output = document.getElementById("output");
+            output.innerHTML = "Loading...";
+            
+            fetchGitHubUser(username).then(user => {
+                const userDetails = [
+                    { label: "Name", value: user.name || "N/A" },
+                    { label: "Username", value: user.login },
+                    { label: "Followers", value: user.followers },
+                    { label: "Following", value: user.following },
+                    { label: "Public Repos", value: user.public_repos }
+                ];
+
+                const userInfo = userDetails.map(detail => `<strong>${detail.label}:</strong> ${detail.value}`).join("<br>");
+                
+                output.innerHTML = `
+                    <div class="user-card">
+                        <img src="${user.avatar_url}" alt="Avatar">
+                        <div>${userInfo}</div>
+                    </div>
+                `;
+            }).catch(error => {
+                output.innerHTML = `<p style="color: red;">${error.message}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>

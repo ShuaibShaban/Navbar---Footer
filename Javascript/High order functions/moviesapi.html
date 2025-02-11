@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 50px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+        }
+        .movie-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #e3e3e3;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        img {
+            width: 100px;
+            height: 150px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Search</h1>
+        <input type="text" id="movieTitle" placeholder="Enter Movie Title">
+        <button id="fetchMovie">Search</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function movieFetcher() {
+            let cache = {};
+            return function(title) {
+                if (cache[title]) {
+                    return Promise.resolve(cache[title]);
+                }
+                return fetch(`https://www.omdbapi.com/?t=${title}&apikey=707f43d1`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Movie not found");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.Response === "False") {
+                            throw new Error("Movie not found");
+                        }
+                        cache[title] = data;
+                        return data;
+                    });
+            };
+        }
+
+        const fetchMovie = movieFetcher();
+        document.getElementById("fetchMovie").addEventListener("click", function() {
+            const title = document.getElementById("movieTitle").value.trim();
+            const output = document.getElementById("output");
+            output.innerHTML = "Loading...";
+            
+            fetchMovie(title).then(movie => {
+                const movieDetails = [
+                    { label: "Title", value: movie.Title },
+                    { label: "Year", value: movie.Year },
+                    { label: "Genre", value: movie.Genre },
+                    { label: "Director", value: movie.Director },
+                    { label: "IMDB Rating", value: movie.imdbRating }
+                ];
+
+                const movieInfo = movieDetails.map(detail => `<strong>${detail.label}:</strong> ${detail.value}`).join("<br>");
+                
+                output.innerHTML = `
+                    <div class="movie-card">
+                        <img src="${movie.Poster}" alt="Movie Poster">
+                        <div>${movieInfo}</div>
+                    </div>
+                `;
+            }).catch(error => {
+                output.innerHTML = `<p style="color: red;">${error.message}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>

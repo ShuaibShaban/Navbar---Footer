@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    cursor: pointer;
+}
+.box:hover {
+    color: red;
+}

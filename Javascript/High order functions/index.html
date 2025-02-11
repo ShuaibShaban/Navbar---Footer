@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Map, Filter, and Reduce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 50px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Understanding Map, Filter, and Reduce</h1>
+        <button id="processData">Process Data</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const data = [
+            { name: "Alice", age: 25, salary: 50000 },
+            { name: "Bob", age: 30, salary: 60000 },
+            { name: "Charlie", age: 35, salary: 70000 },
+            { name: "David", age: 40, salary: 80000 },
+            { name: "Eve", age: 45, salary: 90000 }
+        ];
+
+        document.getElementById("processData").addEventListener("click", function() {
+            const output = document.getElementById("output");
+            
+            // Using map to create an array of names
+            const names = data.map(person => person.name);
+            
+            // Using filter to get people with salary above 60,000
+            const highEarners = data.filter(person => person.salary > 60000);
+            
+            // Using reduce to calculate total salary
+            const totalSalary = data.reduce((sum, person) => sum + person.salary, 0);
+            
+            output.innerHTML = `
+                <strong>Names:</strong> ${names.join(", ")}<br><br>
+                <strong>High Earners (Salary > 60,000):</strong><br>
+                ${highEarners.map(person => person.name + " - " + person.salary).join("<br>")}<br><br>
+                <strong>Total Salary:</strong> $${totalSalary}
+            `;
+        });
+    </script>
+</body>
+</html>
